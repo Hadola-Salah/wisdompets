@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Submitter</th>
+    </tr>
+    {% if last_pet %}
+    <tr >
+        <td style="font-weight:bold;">{{ last_pet.name }}</td>
+        <td style="font-weight:bold;">{{ last_pet.description }}</td>
+        <td style="font-weight:bold;">{{ last_pet.submitter }}</td>
+    </tr>
+    {% endif %}
+    {% for pet in pets_list %}
+    
+    <tr>
+        <td>{{ pet.name }}</td>
+        <td>{{ pet.description }}</td>
+        <td>{{ pet.submitter }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% if is_paginated %}
+<div class="pagination"></div>
+<span>
+    {% if page_obj.has_previous %}
+    <a href="{% url "pet_list" %}?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+    <span style="margin-left:15px;margin-right:15px;">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages}}.
+    </span>
+    {% if page_obj.has_next %}
+    <a href="{% url "pet_list" %}?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+</span>
+</div>
+{% endif %}
+{% endblock %}

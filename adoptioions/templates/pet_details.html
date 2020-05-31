@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>
+    {{ object.name }}
+</h4>
+<table>
+    {% for pet in pet_vac %}
+    <tr>
+        <td>Name : {{ pet.name }}</td>
+
+        <td>Sex : {{ pet.sex }}</td>
+    </tr>
+    <tr>
+        <td>Species : {{ pet.species }}</td>
+        <td>Breed : {{ pet.breed }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{%endblock%}

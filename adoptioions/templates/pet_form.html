@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="post" action="{% url "create_pet" %}">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <!-- <tr>
+            <td>Name</td>
+            <td>
+                <input type="text" name="name" />
+            </td>
+        </tr>
+        <tr>
+            <td>Species</td>
+            <td>
+                <input type="text" name="species" />
+            </td>
+        </tr>
+        <tr>
+            <td>breed</td>
+            <td>
+                <input type="text" name="breed" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>age</td>
+            <td>
+                <input type="text" name="age" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>breed</td>
+            <td>
+                <input type="text" name="breed" />
+            </td>
+        </tr>
+        <tr>
+            <td>sex</td>
+            <td>
+                <select name="sex">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Vaccine</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Valid" />
+            </td>
+        </tr> -->
+    </table>
+
+    <p><input type="submit" value="Create" /></p>
+</form>
+
+{% endblock %}
